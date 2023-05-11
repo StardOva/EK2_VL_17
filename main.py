@@ -16,4 +16,12 @@ Q = input("Punkt Q: ").replace(" ", "").split(",")
 # Todo entscheiden ob Addition oder Verdopplung
 # TODO Parameterprüfung: Länge von P und Q muss 2 sein
 
+# Fallunterscheidung, ob eine Punktaddition oder eine Punktverdopplung stattfinden muss
+# Es wird eine Punktverdopplung durchgeführt, wenn beide Punkte die selben Koordinaten haben.
+
+if P[0] == Q[0] and P[1] == Q[1]:
+    print(f"Punkt P {P} und Q {Q} sind gleich. Es wird eine Punktverdopplung durchgeführt.")
+else:
+    print(f"Punkt P {P} und Q {Q} sind nicht gleich. Es wird eine Punktaddition durchgeführt.")
+
 
