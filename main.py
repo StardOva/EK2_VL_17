@@ -9,7 +9,7 @@ def gcd_xy(a, b):
     q, r = divmod(a, b)
     x, y, x1, y1 = 0, 1, 1, 0
     while r != 0:
-        x1, y1, x, y = x, y, x1 - q*x, y1 - q*y
+        x1, y1, x, y = x, y, x1 - q * x, y1 - q * y
         b, (q, r) = r, divmod(b, r)
     return b, x, y
 
@@ -54,7 +54,7 @@ def doublePoint(P, a, p):
     s_zaehler = (3 * (P[0] * P[0]) + a) % p
     s_nenner = (P[1] + P[1]) % p
 
-    s_inverse = math.pow(s_nenner, p - 2)
+    s_inverse = mod_inv(s_nenner, p)
     print("s_inverse", s_inverse)
 
     s = (s_zaehler * s_inverse) % p
@@ -66,10 +66,6 @@ def doublePoint(P, a, p):
 
     return [x_3, y_3]
 
-
-print(str(power(938, 981, 983)))
-print(str(power(100, 2, 11)))
-print(str(power(100, 100, 901)))
 
 a = int(input("Parameter a: "))
 b = int(input("Parameter b: "))
@@ -99,7 +95,6 @@ elif not P_unendlich and Q_unendlich:
 elif P_unendlich and Q_unendlich:
     print("Beide Elemente sind das neutrale Element, Ergebnis ist O")
 else:
-
     # in integers umwandeln
     P[0] = int(P[0])
     P[1] = int(P[1])
@@ -108,14 +103,14 @@ else:
 
     # TODO Parameterprüfung: Länge von P und Q muss 2 sein
 
-# Fallunterscheidung, ob eine Punktaddition oder eine Punktverdopplung stattfinden muss
-# Es wird eine Punktverdopplung durchgeführt, wenn beide Punkte dieselben Koordinaten haben.
+    # Fallunterscheidung, ob eine Punktaddition oder eine Punktverdopplung stattfinden muss
+    # Es wird eine Punktverdopplung durchgeführt, wenn beide Punkte dieselben Koordinaten haben.
 
-if P[0] == Q[0] and P[1] == Q[1]:
-    print(f"Punkt P {P} und Q {Q} sind gleich. Es wird eine Punktverdopplung durchgeführt.")
-    R = doublePoint(P, a, p)
-    print(R)
-else:
-    print(f"Punkt P {P} und Q {Q} sind nicht gleich. Es wird eine Punktaddition durchgeführt.")
-    R = addPoint(P, Q, p)
-    print(R)
+    if P[0] == Q[0] and P[1] == Q[1]:
+        print(f"Punkt P {P} und Q {Q} sind gleich. Es wird eine Punktverdopplung durchgeführt.")
+        R = doublePoint(P, a, p)
+        print(R)
+    else:
+        print(f"Punkt P {P} und Q {Q} sind nicht gleich. Es wird eine Punktaddition durchgeführt.")
+        R = addPoint(P, Q, p)
+        print("R = ", R)
