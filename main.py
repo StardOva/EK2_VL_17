@@ -7,6 +7,7 @@ def doublePoint(P, Q):
 
 a = int(input("Parameter a: "))
 b = int(input("Parameter b: "))
+p = int(input("Primzahl p: "))
 
 print("Hinweis: Punkt muss die Form x,y haben")
 P = input("Punkt P: ").replace(" ", "").split(",")
