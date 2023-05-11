@@ -13,7 +13,6 @@ print("Hinweis: Punkt muss die Form x,y haben")
 P = input("Punkt P: ").replace(" ", "").split(",")
 Q = input("Punkt Q: ").replace(" ", "").split(",")
 
-# Todo entscheiden ob Addition oder Verdopplung
 # TODO Parameterprüfung: Länge von P und Q muss 2 sein
 
 # Fallunterscheidung, ob eine Punktaddition oder eine Punktverdopplung stattfinden muss
