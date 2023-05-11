@@ -1,5 +1,4 @@
 import math
-import numpy as np
 
 def addPoint(P, Q, p):
     s_zaehler = (Q[1] - P[1]) % p
@@ -8,7 +7,7 @@ def addPoint(P, Q, p):
     s_nenner = (Q[0] - P[0]) % p
     print("s_nenner", s_nenner)
 
-    s_inverse = np.power(s_nenner, p-2)
+    s_inverse = math.pow(s_nenner, p-2)
     print("s_inverse", s_inverse)
 
     s = (s_zaehler * s_inverse) % p
